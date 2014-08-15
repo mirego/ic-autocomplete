@@ -112,6 +112,8 @@ exports["default"] = Ember.Component.extend({
     }
   },
 
+  selectOptionOnClick: false,
+
   /**
    * Selects an option.
    *
@@ -262,7 +264,7 @@ exports["default"] = Ember.Component.extend({
    * @method handleKeydown
    * @private
    */
- 
+
   handleKeydown: function(event) {
     var map = this.get('keydownMap');
     var method = map[event.keyCode];

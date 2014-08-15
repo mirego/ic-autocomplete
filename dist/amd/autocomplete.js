@@ -115,6 +115,8 @@ define(
         }
       },
 
+      selectOptionOnClick: false,
+
       /**
        * Selects an option.
        *
@@ -265,7 +267,7 @@ define(
        * @method handleKeydown
        * @private
        */
-     
+
       handleKeydown: function(event) {
         var map = this.get('keydownMap');
         var method = map[event.keyCode];

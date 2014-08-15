@@ -96,7 +96,9 @@ exports["default"] = Ember.Component.extend({
 
   selectOnClick: function(event) {
     event.stopPropagation();
-    this.get('autocomplete').selectOption(this);
+    if (this.get('autocomplete.selectOptionOnClick')) {
+      this.get('autocomplete').selectOption(this);
+    }
   }.on('click'),
 
   /**

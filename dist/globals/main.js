@@ -229,7 +229,9 @@ exports["default"] = Ember.Component.extend({
 
   selectOnClick: function(event) {
     event.stopPropagation();
-    this.get('autocomplete').selectOption(this);
+    if (this.get('autocomplete.selectOptionOnClick')) {
+      this.get('autocomplete').selectOption(this);
+    }
   }.on('click'),
 
   /**
@@ -464,6 +466,8 @@ exports["default"] = Ember.Component.extend({
     }
   },
 
+  selectOptionOnClick: false,
+
   /**
    * Selects an option.
    *
@@ -614,7 +618,7 @@ exports["default"] = Ember.Component.extend({
    * @method handleKeydown
    * @private
    */
- 
+
   handleKeydown: function(event) {
     var map = this.get('keydownMap');
     var method = map[event.keyCode];

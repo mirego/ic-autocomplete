@@ -237,7 +237,9 @@ define("ic-autocomplete/autocomplete-option",
 
       selectOnClick: function(event) {
         event.stopPropagation();
-        this.get('autocomplete').selectOption(this);
+        if (this.get('autocomplete.selectOptionOnClick')) {
+          this.get('autocomplete').selectOption(this);
+        }
       }.on('click'),
 
       /**
@@ -478,6 +480,8 @@ define("ic-autocomplete/autocomplete",
         }
       },
 
+      selectOptionOnClick: false,
+
       /**
        * Selects an option.
        *
@@ -628,7 +632,7 @@ define("ic-autocomplete/autocomplete",
        * @method handleKeydown
        * @private
        */
-     
+
       handleKeydown: function(event) {
         var map = this.get('keydownMap');
         var method = map[event.keyCode];

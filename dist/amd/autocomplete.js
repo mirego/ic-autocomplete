@@ -206,7 +206,7 @@ define(
             this.selectOption(option, {focus: false});
           }
         }
-        if (this.get('isOpen') && this.get('inputValue')) {
+        if (this.get('autocomplete') && this.get('isOpen') && this.get('inputValue')) {
           Ember.run.scheduleOnce('afterRender', this, 'autocompleteText');
         }
       },
